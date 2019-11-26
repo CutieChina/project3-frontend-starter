@@ -1,6 +1,7 @@
 import React from 'react';
 import DisplayMessage from './DisplayMessage';
 import axios from 'axios';
+import { Container, Button, Card, Accordion } from 'react-bootstrap';
 // import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
 const databaseUrl = 'http://localhost:3000'
 
@@ -20,15 +21,15 @@ class DisplayThread extends React.Component {
             url: `${databaseUrl}/api/messageitems/${id}`,
             method: 'delete'
         })
-        .then(() => {
-            let newMessagesArray = this.state.messages.filter(message => message.id != id)
-            this.setState({messages: newMessagesArray})
-        })
+            .then(() => {
+                let newMessagesArray = this.state.messages.filter(message => message.id != id)
+                this.setState({ messages: newMessagesArray })
+            })
     }
 
     createMessage = e => {
         e.preventDefault()
-        axios ({
+        axios({
             url: `${databaseUrl}/api/messageitems`,
             method: 'post',
             data: {
@@ -37,14 +38,14 @@ class DisplayThread extends React.Component {
                 threadId: this.state.thread.id
             }
         })
-        .then(response => {
-            console.log(response)
-            this.setState(prevState => (
-                { messages: [...prevState.messages, response.data.messageItem]  }
-            )
-        )
-    })
-}
+            .then(response => {
+                console.log(response)
+                this.setState(prevState => (
+                    { messages: [...prevState.messages, response.data.messageItem] }
+                )
+                )
+            })
+    }
 
 
     opentextarea = () => {
@@ -61,7 +62,7 @@ class DisplayThread extends React.Component {
         }
         oBody.appendChild(input);
         oBody.appendChild(button);
-     }
+    }
 
 
     getThread = (threadId) => {
@@ -84,47 +85,65 @@ class DisplayThread extends React.Component {
     }
 
     componentDidMount() {
-        this.getThread(this.props.threadId) 
+        this.getThread(this.props.threadId)
     }
 
     render() {
         console.log(this.state)
         let messageList = this.state.messages.map(message => {
             return (
-                
+
                 <li key={message.id} className="ItemBorder">
                     message: <br />
                     userId: {message.userId} <br />
                     subject: {message.message} <br />
                     updatedAt: {message.updatedAt} <br />
                     api url: {databaseUrl}/api/messages/{message.id}
-                    <button onClick={e => this.deleteMessage(e, message.id)}>Delete Message</button> 
+                    <button onClick={e => this.deleteMessage(e, message.id)}>Delete Message</button>
                 </li>
             )
         })
 
         return (
-            <div className="ComponentBorder">
-                <h3>The DisplayThread Component</h3>
-                <p className="ItemBorder">
-                    thread: <br />
-                    userId: {this.state.thread.userId} <br />
-                    subject: {this.state.thread.subject} <br />
-                    updatedAt: {this.state.thread.updatedAt} <br />
-                    api url: {databaseUrl}/api/threads/{this.state.thread.id}
-                </p>
-                <ul>
-                    <form name={this.state.thread.id} onSubmit={e => this.createMessage(e)}>
-                    <textarea id="textareabox" name="textarea1" placeholder="Start here..." onChange={(e) => this.setState({newMessageString: e.target.value})}></textarea>
-                    <button>Submit</button>
-                    </form>
-                    {messageList}
-                </ul>
-            </div>
-         
+            <Container>
+                <Card>
+                    <Card.Body>
+                        <Card.Title>{this.state.thread.subject}</Card.Title>
+                        <Card.Text>
+                            Created By: PASS USER ID
+                       </Card.Text>
+                        <Accordion>
+                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                                POST
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="0">
+                                <Card.Body>
+                                    <ul>
+                                        <form name={this.state.thread.id} onSubmit={e => this.createMessage(e)}>
+                                            <textarea id="textareabox" name="textarea1" placeholder="Start here..." onChange={(e) => this.setState({ newMessageString: e.target.value })}></textarea>
+                                            <button>Submit</button>
+                                        </form>
+                                        {messageList}
+                                    </ul>
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Accordion>
+                    </Card.Body>
+                </Card>
+                {/* <div className="ComponentBorder">
+                    <h3>The DisplayThread Component</h3>
+                    <p className="ItemBorder">
+                        thread: <br />
+                        userId: {this.state.thread.userId} <br />
+                        subject: {this.state.thread.subject} <br />
+                        updatedAt: {this.state.thread.updatedAt} <br />
+                        api url: {databaseUrl}/api/threads/{this.state.thread.id}
+                    </p>
+                </div> */}
+            </Container >
         );
     }
-    
+
 }
 
 
