@@ -1,144 +1,39 @@
-# ![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) 
+## Description
+Our app is a open community forum. In this forum you can add a message to any thread and delete your message. We have four forums and in each forum there are threads related to the forum that the user picks. When the user clicks on the forum they will be able to post anything they want that is related to the subject.
 
-# Project 3 Frontend Starter Code
+## User Stories
+1. As a user I want an app where I can post questions to an open community
+2. As a user I want to share links with an open community
+3. As a user I want to comment on post shared by other users
+4. As a user I want to "like" post shared by other users
+5. As a user I want to link my post to topics
+6. As a user I want to search post by topic
+7. As a user I want save my favorite post
+8. As a user I want to create a profile
+9. As a user to create a community chat
+10. As a user I want to join a community chat
+11. As a user I want to direct message other user
+12. As a user, I want an app that I can read people's opinions on a certain subject
+13. As a user I would like to create my own username
 
-#### Project 3 Starter Code Links
+## Installations
+- React BootStrap
+- React
+- Axios
+- npm
+- DOM Manipulation 
 
-- [Node/Express Backend Starter App](https://git.generalassemb.ly/Interapt/project3-backend-starter)
-- [React Frontend Starter App](https://git.generalassemb.ly/Interapt/project3-frontend-starter)
+## If we had more time:
+- We would aim to have a login feature for users to create their own profile.
+- We would have added a feature for users to create a new thread. 
+- We would set a feature to show the name of the user who created the thread.
+- We would set a feature to show the name of the user who submited the post.
+- We would aim to do more with the layout and the desin of the page(s)
 
-<br>
-
-## Express Backend Set-up
-
-#### To Install
-
-- Fork and clone `https://git.generalassemb.ly/Interapt/project3-backend-starter`
-- `cd` into the app and `npm install`
-- From the command line run `createdb project3-backend-dev`
-- Run `npm start`. 
-
-
-#### Starter End Points
-
-You have two starter endpoints:
-
-- `GET` `api/users`
-- `POST` `api/users`
-
-- Your `config/config/json` is set-up to access the Heroku Postgres production database instance.
-
-```js
-{
-  "development": {
-    "database": "project3-backend-dev",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
-  "production": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
-  }
-}
-```
-
-- This app also has `cors` and `nodemon` installed.
-- [Sequelize Cheatsheet](https://gist.github.com/vapurrmaid/a111bf3fc0224751cb2f76532aac2465)
+## Wireframe
+- Live Wirefrane https://balsamiq.cloud/sxf6i92/pgkeemb/r2278
 
 
-#### Test the endpoints with Postman
-
-![](https://i.imgur.com/MhV0c4U.png)
-
-<br>
-
-## React Frontend Set-up
-
-#### To Install
-
-- Fork and clone `https://git.generalassemb.ly/Interapt/project3-frontend-starter`
-- `cd` into the app and `npm install`
-- Run `npm start`. You should see this in the browser:
-
-![](https://i.imgur.com/7CLkUI4.png)
-
-
-#### Axios
-
-The app has axios installed. You have one method called `getUsers` that hits your Express backend `api/users`. Check the browser console for the response.
-
-
-<br>
-
-# Heroku 
-
-## Create Free Heroku Account
-
-[Heroku Homepage](https://devcenter.heroku.com/)
-
-![](https://i.imgur.com/hPAtUfN.png)
-
-## Install the Heroku CLI
-
-[Install Docs](https://devcenter.heroku.com/articles/heroku-cli)
-
-[Heroku Node/Express Deployment Docs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
-
-
-- Also syncing the Sequelize models so that the tables will automatically be created:
-
-```js
-var db = require('./models');
-db.sequelize.sync();
-```
-
-<br>
-## Connect Heroku DB to PG Admin
-
-#### Heroku Stuff
-
-- Right click on `Servers` and select Create > Server...
-
-![](https://i.imgur.com/JWvG2Nz.png)
-
-- On your Heroku App dashboard, click on Heroku Postgres
-
-![](https://i.imgur.com/5l5Gq6s.png)
-
-- On the next screen choose Settings, then View Database Credentials
-
-![](https://i.imgur.com/iikLgfj.png)
-
-#### Database URL
-
-For security, we'll add the Heroku Postgres URL add heroku env variable to heroku dashboard
-
-#### PG Admin Stuff
-
-- In the `Name` field, enter the name of your database.
-
-![](https://i.imgur.com/Lzp0zlC.png)
-
-- In the `Connection` Tab:
-	
-	- `Hostname/Address` is your Heroku Postgres `Host`
-	- `Maintenance Database` is your Heroku Postgres `Database`
-	- `Username` is your Heroku Postgres `User`
-
-![](https://i.imgur.com/hQQB2MM.png)
-
-
-<br>
-
-#### Connect to your production server Terminal
-
-Run this command from your back end app folder: `heroku run bash`
-
-From here you can run commands like `sequelize db:migrate` or `sequelize db:seed:all`
-
-https://project3-backend-test.herokuapp.com/users
-
-## Additional Resources
-
-
-- [React Relative Paths](https://create-react-app.dev/docs/deployment#building-for-relative-paths)
+![](src/Wireframes/Wireframe1.png)
+![](src/Wireframes/Wireframe2.png)
+![](src/Wireframes/Wireframe3.png)ƒ

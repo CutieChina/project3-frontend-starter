@@ -40,17 +40,19 @@ class DisplayMessage extends React.Component {
 
   render() {
 
+    let date= (new Date(this.props.updatedAt)).toLocaleString();
+
     return (
       <Card className="text-center">
         <Card.Header></Card.Header>
         <Card.Body>
-          <Card.Title>{this.props.userId}</Card.Title>
+          {/* <Card.Title>{this.props.userId}</Card.Title> */}
           <Card.Text>
             {this.props.message}
           </Card.Text>
-          <Button onClick={e => this.deleteMessage(e)} name={this.props.messageId}>Delete Message</Button>
+          <Button className="btn btn-secondary" onClick={e => this.deleteMessage(e)} name={this.props.messageId}>Delete Message</Button>
         </Card.Body>
-        <Card.Footer className="text-muted">{this.props.updatedAt}</Card.Footer>
+        <Card.Footer className="text-muted">{date}</Card.Footer>
       </Card>
     );
   }
