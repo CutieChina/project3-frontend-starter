@@ -2,28 +2,12 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  background-color: #FAF6EB;
 }
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-.App-link {
-  color: #09d3ac;
-}
-
 
 .nav {
-  margin: 5em 0em 7em 0em;
+  margin: 7em 0em 5em 1em;
 }
 
 .forum {
@@ -32,12 +16,49 @@
   justify-content: space-around;
 }
 
- .btn-home {
-  font-size: 40px; 
+.App h1 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 90px;
+  margin-bottom: .5em;
  }
 
- a {
-  margin: 0.5rem;
+ .forum-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+ }
+
+ .nav a {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: white;
+  background-color: #CF1307; 
+ }
+
+
+.btn-secondary{
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 17x;
+  color: white;
+}
+
+.btn-danger {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 17x;
+  color: white;
+}
+
+.btn:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.message-input {
+  width: 2px
 }
 
 .ComponentBorder {
@@ -51,4 +72,18 @@
   padding: 2px;
   margin: 2px;
   list-style: none;
+}
+
+.top {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  color: white;
+  background-color: #CF1307; 
+  margin-right: 5px;
+  padding: 2px;
+}
+
+.back-to-top:focus {
+  outline: none;
 }

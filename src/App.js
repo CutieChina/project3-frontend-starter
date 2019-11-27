@@ -6,14 +6,10 @@ import {
   Link,
   Switch
 } from 'react-router-dom';
-import axios from 'axios';
 import Slash from './Slash';
 import DisplayThread from './DisplayThread';
-import DisplayMessage from './DisplayMessage';
-import MakeThread from './MakeThread';
-import MakeMessage from './MakeMessage';
 import DisplayForum from './DisplayForum';
-import DisplayThreadList from './DisplayThreadList';
+import BackToTop from 'react-back-to-top-button';
 import './App.css';
 import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 
@@ -34,7 +30,7 @@ class App extends React.Component {
     return (
       <Container>
         <Row className="nav" >
-          <a href="/" className="btn btn-home" role="button" aria-pressed="true">INTERACT</a>
+          <a href="/" className="btn btn-danger" role="button" aria-pressed="true">INTERACT</a>
         </Row>
 
         <div>
@@ -62,6 +58,11 @@ class App extends React.Component {
               </Route>
             </div>
           </Router>
+        </div>
+        <div>
+          <BackToTop showOnScrollUp showAt={40} speed={1000} easing="easeInOutQuint" style= {{height: '15px'}}>
+            <span className="top">^</span>
+          </BackToTop>
         </div>
       </Container>
     );

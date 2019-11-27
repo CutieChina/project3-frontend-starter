@@ -1,7 +1,7 @@
 import React from 'react';
 import DisplayMessage from './DisplayMessage';
 import axios from 'axios';
-import { Container, Button, Card, Accordion, Form } from 'react-bootstrap';
+import { Container, Button, Card, Accordion, InputGroup, FormControl, Form } from 'react-bootstrap';
 const databaseUrl = 'http://localhost:3000'
 class DisplayThread extends React.Component {
     constructor(props) {
@@ -78,7 +78,6 @@ class DisplayThread extends React.Component {
     render() {
         let messageList = this.state.messages.map(message => {
             return (
-
                 <DisplayMessage key={message.id} messageId={message.id} deleteMessage={this.deleteMessage} userId={message.userId} message={message.message} updatedAt={message.updatedAt} />
             )
         })
@@ -88,20 +87,30 @@ class DisplayThread extends React.Component {
                     <Card.Body>
                         <Card.Title>{this.state.thread.subject}</Card.Title>
                         <Card.Text>
-                            Created By: PASS USER ID
+                            {/* Created By: PASS USER ID */}
                        </Card.Text>
                         <Accordion>
-                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                                POST
+                            <Accordion.Toggle className="btn btn-danger" as={Button} variant="link" eventKey="0">
+                                INTERACT
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
                                     <ul>
-                                        <form name={this.state.thread.id} onSubmit={e => this.createMessage(e)}>
-                                            <textarea id="textareabox" name="textarea1" placeholder="Start here..." onChange={(e) => this.setState({ newMessageString: e.target.value })}></textarea>
-                                            <button>Submit</button>
+                                        <form onSubmit={e => this.createMessage(e)}>
+                                            <InputGroup size="lg" id ="messages"
+                                                name={this.state.thread.id}
+                                                aria-describedby="basic-addon1"
+                                                variant="outline-secondary"
+                                                className="mb-3">
+                                                <FormControl className="message-input"
+                                                    textarea id="textareabox" name="textarea1" placeholder="What's on your mind..." onChange={(e) => this.setState({ newMessageString: e.target.value })}
+                                                />
+                                                <InputGroup.Prepend>
+                                                    <Button className="btn btn-danger" type="submit">SUBMIT</Button>
+                                                </InputGroup.Prepend>
+                                            </InputGroup>
+                                            {messageList}
                                         </form>
-                                        {messageList}
                                     </ul>
                                 </Card.Body>
                             </Accordion.Collapse>
