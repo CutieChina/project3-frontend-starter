@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   HashRouter as Router,
   Route,
@@ -16,27 +15,20 @@ import DisplayForum from './DisplayForum';
 import DisplayThreadList from './DisplayThreadList';
 import './App.css';
 import { Container, Card, Row, Col, Button } from 'react-bootstrap';
-
-
 const databaseUrl = 'http://localhost:3000'
-
 class App extends React.Component {
-
   constructor(props) {
     super();
     this.state = {
       forumName: [['Anime', 1], ['Oracle Cards', 2], ['Music', 3], ['Sports', 4]],
     }
   }
-
   render() {
-
     return (
       <Container>
         <Row className="nav" >
           <a href="/" className="btn btn-home" role="button" aria-pressed="true">INTERACT</a>
         </Row>
-
         <div>
           <Router basename='/'>
             <div className="App">
@@ -67,6 +59,4 @@ class App extends React.Component {
     );
   }
 }
-
-
 export default App;

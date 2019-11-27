@@ -4,19 +4,16 @@ import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom"
 const databaseUrl = 'http://localhost:3000'
-
 class Home extends React.Component {
   state = {
     users: [],
     subject: [],
     forums: []
   }
-
   componentDidMount() {
     this.getUsers()
     this.getForums()
   }
-
   getForums = () => {
     axios({
       url: `${databaseUrl}/api/forums`,
@@ -26,7 +23,6 @@ class Home extends React.Component {
         this.setState({ forums: response.data.forums })
       })
   }
-
   getUsers = () => {
     axios({
       url: `${databaseUrl}/api/users`,
@@ -36,8 +32,6 @@ class Home extends React.Component {
         this.setState({ users })
       })
   }
-
-
   render() {
     console.log(this.state)
     return (
@@ -53,7 +47,6 @@ class Home extends React.Component {
               <Link to="/anime" className="btn btn-primary" role="button" aria-pressed="true">Anime</Link>
             </Card.Body>
           </Card>
-
           <Card sm={3} style={{ width: '15rem' }}>
             <Card.Body>
               <Card.Title>Music </Card.Title>
@@ -64,8 +57,6 @@ class Home extends React.Component {
               <Link to="/music" className="btn btn-primary" role="button" aria-pressed="true">Music</Link>
             </Card.Body>
           </Card>
-
-
           <Card sm={3} style={{ width: '15rem' }}>
             <Card.Body>
               <Card.Title>Oracle Cards </Card.Title>
@@ -76,8 +67,6 @@ class Home extends React.Component {
               <Link to="/oraclecards" className="btn btn-primary" role="button" aria-pressed="true">Oracal Cards</Link>
             </Card.Body>
           </Card>
-
-
           <Card sm={3} style={{ width: '15rem' }}>
             <Card.Body>
               <Card.Title>Sports </Card.Title>
@@ -93,5 +82,4 @@ class Home extends React.Component {
     );
   }
 }
-
 export default Home;

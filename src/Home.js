@@ -4,19 +4,16 @@ import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 // const databaseUrl = process.env.HEROKU_DB_URL || 'http://localhost:3000'
 const databaseUrl = 'http://localhost:3000'
-
 class Home extends React.Component {
   state = {
     users: [],
     subject: [],
     forums: []
   }
-
   componentDidMount() {
     this.getUsers()
     this.getForums()
   }
-
   getForums = () => {
       axios({
           url: `${databaseUrl}/api/forums`,
@@ -26,7 +23,6 @@ class Home extends React.Component {
         this.setState({forums: response.data.forums})
       })
   } 
-
   getUsers = () => {
     axios({
       url: `${databaseUrl}/api/users`,
@@ -37,13 +33,11 @@ class Home extends React.Component {
         this.setState({ users })
       })
   }
-
 //    drawList = () => {
 //     return this.state.users.map((user, index) => {
 //       return <li key={index}>{user}</li>
 //     })
 //   }
-
   render() {
       console.log(this.state)
     return (
@@ -62,7 +56,6 @@ class Home extends React.Component {
               <a href="/forums/anime" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
-
             <Card sm={3} style={{ width: '15rem' }}>
               <Card.Body>
                 <Card.Title>Music </Card.Title>
@@ -73,8 +66,6 @@ class Home extends React.Component {
               <a href="/forums/music" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
-
-
             <Card sm={3} style={{ width: '15rem' }}>
               <Card.Body>
                 <Card.Title>Oracle Cards </Card.Title>
@@ -85,8 +76,6 @@ class Home extends React.Component {
               <a href="/forums/oraclecards" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
-
-            
             <Card sm={3} style={{ width: '15rem' }}>
               <Card.Body>
                 <Card.Title>Sports </Card.Title>
@@ -97,11 +86,9 @@ class Home extends React.Component {
               <a href="/forums/sports" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
-            
           </Row>
         </Container>
     );
   }
 }
-
 export default Home;

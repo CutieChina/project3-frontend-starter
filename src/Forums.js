@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import axios from 'axios';
-
 const databaseUrl = 'http://localhost:3000'
-
-
 class Forums extends Component {
     constructor(props) {
         super()
@@ -19,18 +16,14 @@ class Forums extends Component {
         this.handleClick = this.handleClick.bind(this)
         this.showThread = this.showThread.bind(this)
         this.handleChange = this.handleChange.bind(this)
-
     }
-
     componentDidMount() {
         this.setForumName()
     }
-
     setForumName() {
         let newPath = this.props.location.pathname.slice(8);
         this.setState({ newPath })
     }
-
     handleChange(e) {
         let newThread = {
             [e.target.name]: e.target.value
@@ -43,7 +36,6 @@ class Forums extends Component {
             { newThread: { ...prevState.newThread, ...newThread } }
         ))
     }
-
     handleClick(e) {
         e.preventDefault()
         this.setState({
@@ -56,20 +48,14 @@ class Forums extends Component {
             .then(response => {
                 this.setState({ forums: response.data.forums })
             })
-
     }
-
     showThread(e) {
         e.preventDefault()
         this.setState({
             triggerThread: true
-
-
         })
     }
-
     render() {
-
         return (
             <Container>
                 <Row className="nav" >
@@ -78,7 +64,6 @@ class Forums extends Component {
                 <Row className="forum-title" >
                     <h2>{this.props.forumName} Forum</h2>
                 </Row>
-
                 <Row>
                     <Col>
                         <Form sm={2} style={{ width: '40rem' }} onChange={this.handleChange}>
@@ -86,7 +71,6 @@ class Forums extends Component {
                                 <Form.Label>start a conversation</Form.Label>
                                 <Form.Control type="text" placeholder="username" name='username' />
                             </Form.Group>
-
                             <Form.Group controlId="formBasicThread">
                                 <Form.Control type="text" placeholder="thread title" name='subject' />
                             </Form.Group>
@@ -95,7 +79,6 @@ class Forums extends Component {
                          </Button>
                         </Form>
                     </Col>
-
                     <Col>
                         <Container className="side-bar">
                             <Card sm={3} style={{ width: '15rem' }}>
@@ -108,7 +91,6 @@ class Forums extends Component {
                                     <a href="/forums/music" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
                                 </Card.Body>
                             </Card>
-
                             <Card sm={3} style={{ width: '15rem' }}>
                                 <Card.Body>
                                     <Card.Title>Oracle Cards </Card.Title>
@@ -126,7 +108,4 @@ class Forums extends Component {
         )
     }
 }
-
-
-
 export default Forums;

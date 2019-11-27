@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { Container, Button, Card, Accordion } from 'react-bootstrap';
 const databaseUrl = 'http://localhost:3000'
-
 class DisplayMessage extends React.Component {
   constructor(props) {
     super();
@@ -13,7 +12,6 @@ class DisplayMessage extends React.Component {
     }
     this.getOneMessage = this.getOneMessage.bind(this)
   }
-
   getOneMessage = (messageId) => {
     axios({
       url: `${databaseUrl}/api/messageItems/${messageId}`,
@@ -27,19 +25,13 @@ class DisplayMessage extends React.Component {
         })
       })
   }
-
   deleteMessage = (e) => {
     this.props.deleteMessage(e)
   }
-
   componentDidMount() {
     this.getOneMessage(17)
   }
-
-
-
   render() {
-
     return (
       <Card className="text-center">
         <Card.Header></Card.Header>
@@ -55,5 +47,4 @@ class DisplayMessage extends React.Component {
     );
   }
 }
-
 export default DisplayMessage;

@@ -36,8 +36,9 @@ class DisplayThread extends React.Component {
             }
         })
             .then(response => {
+                console.log(response)
                 this.setState(prevState => (
-                    { messages: [...prevState.messages, response.data.messageItems] }
+                    { messages: [...prevState.messages, response.data.messageItem] }
                 )
                 )
             })
