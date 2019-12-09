@@ -81,7 +81,7 @@ class DisplayThread extends React.Component {
     render() {
         let messageList = this.state.messages.map(message => {
             return (
-                <DisplayMessage key={message.id} messageId={message.id} deleteMessage={this.deleteMessage} userId={message.userId} message={message.message} updatedAt={message.updatedAt} />
+                <DisplayMessage key={message.id} messageId={message.id} deleteMessage={this.deleteMessage} userId={message.userId} message={message.messages} updatedAt={message.updatedAt} />
             )
         })
         return (
