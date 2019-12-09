@@ -7,7 +7,9 @@ import AnimeIMG from "./Images/20f6e3b764e4f26231ff0cc5b8b68865.jpg"
 import MusicIMG from "./Images/37821.jpg"
 import OracleIMG from "./Images/fullsizeoutput_6be0.jpg"
 import SportsIMG from "./Images/nyKIn6ZJ_400x400.jpg"
-const databaseUrl = 'http://localhost:3000'
+// const databaseUrl = 'http://localhost:3000'
+const herokuBackendUrl = 'https://project-3-kpcc-backend.herokuapp.com'
+const databaseUrl = process.env.NODE_ENV === 'production' ? herokuBackendUrl : 'http://localhost:3000'
 class Home extends React.Component {
   state = {
     users: [],
