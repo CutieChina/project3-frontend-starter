@@ -1,3 +1,7 @@
+
+## Description
+Our app is a open community forum. In this forum you can add a message to any thread and delete your message. We have four forums and in each forum there are threads related to the forum that the user picks. When the user clicks on the forum they will be able to post anything they want that is related to the subject.
+
 ## User Stories
 1. As a user I want an app where I can post questions to an open community
 2. As a user I want to share links with an open community
@@ -20,16 +24,10 @@
 - npm
 - DOM Manipulation
 
-## Description
-Our app is a open community forum. In this forum you can add a message to any thread and delete your message. We have four forums and in each forum there are threads related to the forum that the user picks. When the user clicks on the forum they will be able to post anything they want that is related to the subject. 
-
-## If we had more time:
-- We would have added a button to create a new thread. 
-- 
 
 ## Wireframe
 
-https://balsamiq.cloud/sxf6i92/pgkeemb/r2278
+- Live wireframe https://balsamiq.cloud/sxf6i92/pgkeemb/r2278
 
 ![](./wireframe1.png)
 
@@ -37,5 +35,12 @@ https://balsamiq.cloud/sxf6i92/pgkeemb/r2278
 
 ![](./wireframe2.png)
 
+
+## If we had more time:
+- We would aim to have a login feature for users to create their own profile.
+- We would have added a feature for users to create a new thread. 
+- We would set a feature to show the name of the user who created the thread.
+- We would set a feature to show the name of the user who submited the post.
+- We would aim to do more with the layout and the desin of the page(s)
 
 

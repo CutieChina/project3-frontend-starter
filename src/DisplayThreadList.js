@@ -3,7 +3,9 @@ import axios from 'axios';
 import DisplayThread from './DisplayThread';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
-const databaseUrl = 'http://localhost:3000'
+// const databaseUrl = 'http://localhost:3000'
+const herokuBackendUrl = 'https://project-3-kpcc-backend.herokuapp.com'
+const databaseUrl = process.env.NODE_ENV === 'production' ? herokuBackendUrl : 'http://localhost:3000'
 class DisplayThreadList extends React.Component {
   constructor(props) {
     super();
