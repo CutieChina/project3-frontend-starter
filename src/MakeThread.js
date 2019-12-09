@@ -1,6 +1,6 @@
 import React from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
-const databaseUrl = 'http://localhost:3000'
+// const databaseUrl = 'http://localhost:3000'
 
 class MakeThread extends React.Component {
   constructor(props) {
