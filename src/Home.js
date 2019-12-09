@@ -3,7 +3,9 @@ import './App.css';
 import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 // const databaseUrl = process.env.HEROKU_DB_URL || 'http://localhost:3000'
-const databaseUrl = 'http://localhost:3000'
+// const databaseUrl = 'http://localhost:3000'
+const herokuBackendUrl = 'https://project-3-kpcc-backend.herokuapp.com'
+const databaseUrl = process.env.NODE_ENV === 'production' ? herokuBackendUrl : 'http://localhost:3000'
 class Home extends React.Component {
   state = {
     users: [],
