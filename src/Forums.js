@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import axios from 'axios';
-const databaseUrl = 'http://localhost:3000'
+// const databaseUrl = 'http://localhost:3000'
+const herokuBackendUrl = 'https://project-3-kpcc-backend.herokuapp.com'
+const databaseUrl = process.env.NODE_ENV === 'production' ? herokuBackendUrl : 'http://localhost:3000'
 class Forums extends Component {
     constructor(props) {
         super()
